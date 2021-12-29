@@ -1,5 +1,9 @@
 ## Kotlin Clean Architecture
 
+## Give a Star! :star:
+
+If you liked my work and want to support me, please give it a star. Thanks!
+
 ## How to Run
 The solution is not already containerized so there are some dependencies you must configure to run the application:
 - **JDK 17**
