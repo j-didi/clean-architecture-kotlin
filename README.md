@@ -53,10 +53,19 @@ The idea was treat **Frameworks**, **Database**, and **Services(api)** as detail
 - [Ktorm](https://www.ktorm.org/) - Object Relational Mapper (ORM)
 - [Konform](https://www.konform.io/) - Input Validation
 
-## 4. Next Steps
+## 4. Used Patterns and Principles
+- [Clean Architecture](https://blog.cleancoder.com/)
+- [CQRS/CQRS](https://martinfowler.com/bliki/CQRS.html)
+- [SOLID](https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html)
+- [Domain Validation](https://martinfowler.com/articles/replaceThrowWithNotification.html)
+- [Fail-Fast Principle](https://enterprisecraftsmanship.com/posts/fail-fast-principle/)
+- [Repository Pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)
+
+## 5. Next Steps
 1. Add new endpoints
-2. Containerization with **Docker**, **Docker Compose** and **Kubernetes**
-3. Integrate with **Message Broker**
-4. **Serverless** example
-5. **CI/CD** pipeline with **GitHub Actions**
-6. **Authentication**/**Authorization**
+2. Add tests
+3. Containerization with **Docker**, **Docker Compose** and **Kubernetes**
+4. Integrate with **Message Broker**
+5. **Serverless** example
+6. **CI/CD** pipeline with **GitHub Actions**
+7. **Authentication**/**Authorization**
