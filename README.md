@@ -54,7 +54,7 @@ The idea was treat **Frameworks**, **Database**, and **Services(api)** as detail
 - [Konform](https://www.konform.io/) - Input Validation
 
 ## 4. Used Patterns and Principles
-- [Clean Architecture](https://blog.cleancoder.com/)
+- [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [CQRS/CQRS](https://martinfowler.com/bliki/CQRS.html)
 - [SOLID](https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html)
 - [Domain Validation](https://martinfowler.com/articles/replaceThrowWithNotification.html)
