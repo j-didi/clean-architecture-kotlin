@@ -1,13 +1,16 @@
 package operationresult
 
 fun <T>success(result: T): OperationResult<T> =
-    OperationResult(true, result = result)
+    OperationResult(result = result)
+
+fun success(): OperationResult<EmptyResult> =
+    OperationResult(result = EmptyResult())
 
 fun <T>validationFail(fails: List<ValidationFail>): OperationResult<T> {
-    return OperationResult(true, fails = fails)
+    return OperationResult(fails = fails)
 }
 
-fun notFoundFail(description: String = "Not Found!"): OperationResult<Any> {
+fun <T>notFoundFail(description: String = "Not Found!"): OperationResult<T> {
     val validation = ValidationFail(description, type = FailValidationType.NotFound)
-    return OperationResult(true, fails = listOf(validation))
+    return OperationResult(fails = listOf(validation))
 }

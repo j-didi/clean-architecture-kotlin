@@ -42,7 +42,7 @@ The Infra Project is responsible for **Repository Concerns** (**Schemas**, **Rep
 These are projects that consumes the **Core Use Cases**. Can be **APIs**, **gRPC Services**, **Serverless Functions**, **Console Applications** or **MVCs**. As the domain does not depend upon, the consumption can be anything.
 
 ### Shared Kernel
-These are common resources that needs to be used between application layers, like **Common Packages**. This project is used to avoid circular dependencies between the other projects.
+These are common resources that needs to be used between application layers, like **common Packages**. This project is used to avoid circular dependencies between the other projects.
 
 ## 2. Dependencies Structure
 
@@ -54,7 +54,7 @@ The idea was treat **Frameworks**, **Database**, and **Services(api)** as detail
 - [Gradle](https://gradle.org/) - Build Management
 - [Ktor](https://ktor.io/) - Web Framework
 - [Koin](https://insert-koin.io/) - Dependency Injection
-- [Ktorm](https://www.ktorm.org/) - Object Relational Mapper (ORM)
+- [Exposed](https://github.com/JetBrains/Exposed) - Object Relational Mapper (ORM)
 - [Konform](https://www.konform.io/) - Input Validation
 
 ## 4. Used Patterns and Principles

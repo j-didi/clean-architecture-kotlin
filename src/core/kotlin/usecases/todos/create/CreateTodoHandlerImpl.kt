@@ -20,7 +20,7 @@ class CreateTodoHandlerImpl(
         }
 
         val todo = Todo(command.description)
-        val todoId = repository.save(todo)
-        return success(CreateTodoResult(todoId))
+        repository.save(todo)
+        return success(CreateTodoResult(todo.id))
     }
 }

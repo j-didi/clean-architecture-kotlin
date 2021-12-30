@@ -18,7 +18,6 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logback_version")
 
     implementation("io.insert-koin:koin-core:3.1.4")
-    implementation("org.ktorm:ktorm-support-sqlserver:3.4.1")
 
     implementation(project(":core"))
     implementation(project(":infra"))

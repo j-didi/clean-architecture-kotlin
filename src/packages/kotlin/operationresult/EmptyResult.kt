@@ -1,0 +1,3 @@
+package operationresult
+
+class EmptyResult

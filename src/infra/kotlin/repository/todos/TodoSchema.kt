@@ -1,27 +1,11 @@
 package repository.todos
 
-import org.ktorm.database.Database
-import org.ktorm.entity.Entity
-import org.ktorm.entity.sequenceOf
-import org.ktorm.schema.Table
-import org.ktorm.schema.boolean
-import org.ktorm.schema.uuid
-import org.ktorm.schema.varchar
-import java.util.*
+import org.jetbrains.exposed.sql.Table
 
-internal interface TodoEntity : Entity<TodoEntity> {
-    companion object : Entity.Factory<TodoEntity>()
+object TodoSchema : Table("TODO") {
+    val id = uuid("id")
+    val description = varchar("description", 250)
+    val done = bool("done")
 
-    var id: UUID
-    var description: String
-    var done: Boolean
+    override val primaryKey = PrimaryKey(id)
 }
-
-internal object Todos : Table<TodoEntity>("todo") {
-
-    val id = uuid("id").primaryKey().bindTo { it.id }
-    val description = varchar("description").bindTo { it.description }
-    val done = boolean("done").bindTo { it.done }
-}
-
-internal val Database.todos get() = this.sequenceOf(Todos)

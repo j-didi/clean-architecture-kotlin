@@ -1,23 +1,61 @@
 package repository.todos
 
-import org.ktorm.database.Database
-import org.ktorm.entity.add
+import org.jetbrains.exposed.sql.*
+import org.jetbrains.exposed.sql.transactions.transaction
 import ports.TodoRepository
+import repository.DatabaseConnection
 import usecases.todos.Todo
 import java.util.*
 
-internal class TodoRepositoryImpl(database: Database): TodoRepository {
+class TodoRepositoryImpl : TodoRepository {
 
-    private val todos = database.todos
-
-    override fun save(todo: Todo): UUID {
-        val entity = TodoEntity {
-            id = todo.id
-            description = todo.description
-            done = todo.done
+    override fun get(): List<Todo> =
+        transaction {
+            DatabaseConnection.start()
+            TodoSchema.selectAll()
+                .map {
+                    Todo(
+                        id = it[TodoSchema.id],
+                        description = it[TodoSchema.description],
+                        done = it[TodoSchema.done]
+                    )
+                }
         }
-        todos.add(entity)
 
-        return entity.id
+    override fun getById(id: UUID): Todo? =
+        transaction {
+            TodoSchema
+                .select { TodoSchema.id eq id }
+                .map {
+                    Todo(
+                        id = it[TodoSchema.id],
+                        description = it[TodoSchema.description],
+                        done = it[TodoSchema.done]
+                    )
+                }.firstOrNull()
+        }
+
+    override fun save(todo: Todo) {
+        transaction {
+            TodoSchema.insert {
+                it[id] = todo.id
+                it[description] = todo.description
+                it[done] = todo.done
+            }
+        }
+    }
+
+    override fun delete(todo: Todo) {
+        transaction {
+            TodoSchema.deleteWhere { TodoSchema.id eq todo.id }
+        }
+    }
+
+    override fun markAsDone(todo: Todo) {
+        transaction {
+            TodoSchema.update({ TodoSchema.id eq todo.id }) {
+                it[done] = true
+            }
+        }
     }
 }
