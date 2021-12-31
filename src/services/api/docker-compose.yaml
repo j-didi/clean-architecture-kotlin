@@ -12,18 +12,15 @@ services:
 
   db:
     container_name: database
-    image: mcr.microsoft.com/mssql/server:2017-CU27-ubuntu-16.04
+    build:
+      context: ./sql
+      dockerfile: Dockerfile
     environment:
       - SA_PASSWORD=hthw8u:@y+5]Dp3,
       - ACCEPT_EULA=Y
       - MSSQL_PID=Developer
     ports:
       - "1433:1433"
-    volumes:
-      - ./sql/init.sh:/init.sh
-      - ./sql/db.sql:/db.sql
-    entrypoint: sh
-    command: ./init.sh
 
   notifier:
     container_name: notifier
