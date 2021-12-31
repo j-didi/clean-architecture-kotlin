@@ -4,5 +4,5 @@ RUN mkdir -p app
 WORKDIR app
 
 COPY . .
-RUN chmod +x ./init.sh
-CMD /bin/bash ./init.sh
+RUN chmod +x ./db.sh
+CMD /bin/bash ./db.sh
