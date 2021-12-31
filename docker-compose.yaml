@@ -4,27 +4,28 @@ services:
     container_name: todo-api
     image: ${DOCKER_REGISTRY-}api
     build:
-      context: .
+      context: src/services/api
       dockerfile: Dockerfile
     ports:
       - "4500:4500"
     depends_on: ["db"]
 
-  db:
-    container_name: database
-    build:
-      context: ./sql
-      dockerfile: Dockerfile
-    ports:
-      - "1433:1433"
-
   notifier:
     container_name: notifier
     image: ${DOCKER_REGISTRY-}notifier
     build:
-      context: ../notifier
-      dockerfile: ../notifier/Dockerfile
+      context: src/services/notifier
+      dockerfile: Dockerfile
     depends_on: [ "rabbitmq" ]
+
+  db:
+    container_name: database
+    image: ${DOCKER_REGISTRY-}db
+    build:
+      context: sql
+      dockerfile: Dockerfile
+    ports:
+      - "1433:1433"
 
   rabbitmq:
     image: rabbitmq:3.8-management-alpine

@@ -5,12 +5,10 @@
 If you liked my work and want to support me, please give it a star. Thanks!
 
 ## How to Run
-The solution is not already containerized so there are some dependencies you must configure to run the application:
-- **JDK 17**
-- **SQL Server Database**
-  1. Set credentials on **Connection.kt** in **infra** project
-  2. Use the **db.sql** script on **sql** directory.
-
+```
+./gradlew build
+docker-compose up
+```
 ## Introduction
 
 A sandbox where I will experiment with new techniques, concepts, and technologies. Here you will find some DDD, CQRS, Clean Architecture, Event-Driven Architecture, Serverless, Microservices, RabbitMQ, gRPC, SOLID, Design Patterns, and more.
@@ -48,16 +46,21 @@ These are common resources that needs to be used between application layers, lik
 
 ![alt text](images/Dependencies.png "Dependencies Structure")
 
-## 3. Packages and Frameworks
+## 3. Containers
+The application is containerized using **Docker** and automated using **Docker Compose**.
+
+## 4. Packages and Frameworks
 The idea was treat **Frameworks**, **Database**, and **Services(api)** as details. So, I've avoided to use big frameworks and dependent services. For example, to build the API I've chosen **Ktor** and only used **routing** and **request parsing**, so it's easier to replace with other framework or technology.
 
 - [Gradle](https://gradle.org/) - Build Management
+- [Docker](https://docs.docker.com/) - Container Management
+- [Docker Compose](https://docs.docker.com/compose/) - Multi-Container Management
 - [Ktor](https://ktor.io/) - Web Framework
 - [Koin](https://insert-koin.io/) - Dependency Injection
 - [Exposed](https://github.com/JetBrains/Exposed) - Object Relational Mapper (ORM)
 - [Konform](https://www.konform.io/) - Input Validation
 
-## 4. Used Patterns and Principles
+## 5. Used Patterns and Principles
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [CQRS/CQRS](https://martinfowler.com/bliki/CQRS.html)
 - [SOLID](https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html)
@@ -65,9 +68,7 @@ The idea was treat **Frameworks**, **Database**, and **Services(api)** as detail
 - [Fail-Fast Principle](https://enterprisecraftsmanship.com/posts/fail-fast-principle/)
 - [Repository Pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)
 
-## 5. Next Steps
-1. Add tests
-2. Integrate with **Message Broker**
-3. **Serverless** example
-4. **CI/CD** pipeline with **GitHub Actions**
-5. **Authentication**/**Authorization**
+## 6. Next Steps
+1. Add Tests
+2. **CI/CD** pipeline with **GitHub Actions**
+3. **Authentication**/**Authorization**
