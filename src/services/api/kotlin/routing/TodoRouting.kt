@@ -23,6 +23,7 @@ fun Route.todoRouting() {
     val markTodoAsDoneHandler = getKoin().get<MarkTodoAsDoneHandler>()
     val deleteTodoHandler = getKoin().get<DeleteTodoHandler>()
 
+
     route("todo") {
         get {
             call.respond(getTodosHandler.handle())

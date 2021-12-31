@@ -1,0 +1,46 @@
+version: '3.6'
+services:
+  api:
+    container_name: todo-api
+    image: ${DOCKER_REGISTRY-}api
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "4500:4500"
+    depends_on: ["db"]
+
+  db:
+    container_name: database
+    image: mcr.microsoft.com/mssql/server:2017-CU27-ubuntu-16.04
+    environment:
+      - SA_PASSWORD=hthw8u:@y+5]Dp3,
+      - ACCEPT_EULA=Y
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - ./sql/init.sh:/init.sh
+      - ./sql/db.sql:/db.sql
+    entrypoint: sh
+    command: /init.sh
+
+  notifier:
+    container_name: notifier
+    image: ${DOCKER_REGISTRY-}notifier
+    build:
+      context: ../notifier
+      dockerfile: ../notifier/Dockerfile
+    depends_on: [ "rabbitmq" ]
+
+  rabbitmq:
+    image: rabbitmq:3.8-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    environment:
+      - RABBITMQ_DEFAULT_USER=user1
+      - RABBITMQ_DEFAULT_PASS=pass1
+      - RABBITMQ_DEFAULT_VHOST=didi
+      - RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG

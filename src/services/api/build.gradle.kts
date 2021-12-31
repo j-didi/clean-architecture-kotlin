@@ -4,12 +4,17 @@ val logback_version: String by project
 
 plugins {
     application
+    id("com.github.johnrengelman.shadow") version "7.0.0"
+}
+
+application {
+    mainClass.set("ApplicationKt")
 }
 
 repositories {
     maven { url = uri("https://maven.pkg.jetbrains.space/public/p/ktor/eap") }
+    maven { url = uri("https://maven.pkg.jetbrains.space/public/p/kotlinx-html/maven") }
 }
-
 dependencies {
     implementation("io.ktor:ktor-server-content-negotiation:$ktor_version")
     implementation("io.ktor:ktor-server-core:$ktor_version")
@@ -22,4 +27,10 @@ dependencies {
     implementation(project(":core"))
     implementation(project(":infra"))
     implementation(project(":packages"))
+}
+
+tasks.withType<Jar> {
+    manifest {
+        attributes["Main-Class"] = "ApplicationKt"
+    }
 }

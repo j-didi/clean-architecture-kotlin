@@ -9,9 +9,12 @@ import java.util.*
 
 class TodoRepositoryImpl : TodoRepository {
 
+    init {
+        DatabaseConnection.connection
+    }
+
     override fun get(): List<Todo> =
         transaction {
-            DatabaseConnection.start()
             TodoSchema.selectAll()
                 .map {
                     Todo(

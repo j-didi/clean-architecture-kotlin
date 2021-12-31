@@ -6,7 +6,7 @@ import plugins.configureRouting
 import plugins.configureSerialization
 
 fun main() {
-    embeddedServer(Netty, port = 8080, host = "localhost") {
+    embeddedServer(Netty, port = 4500) {
         configureDatabase()
         configureSerialization()
         configureDependencies()

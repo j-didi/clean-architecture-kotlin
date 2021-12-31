@@ -1,7 +1,9 @@
 package di
 
 import org.koin.dsl.module
+import ports.QueueSender
 import ports.TodoRepository
+import queues.QueueSenderImpl
 import repository.todos.TodoRepositoryImpl
 import usecases.todos.create.CreateTodoHandler
 import usecases.todos.create.CreateTodoHandlerImpl
@@ -19,8 +21,9 @@ val dependencies = module {
     factory<GetTodosHandler> { GetTodosHandlerImpl(get()) }
     factory<GetTodoByIdHandler> { GetTodoByIdHandlerImpl(get()) }
     factory<CreateTodoHandler> { CreateTodoHandlerImpl(get(), get()) }
-    factory<MarkTodoAsDoneHandler> { MarkTodoAsDoneHandlerImpl(get()) }
+    factory<MarkTodoAsDoneHandler> { MarkTodoAsDoneHandlerImpl(get(), get()) }
     factory<DeleteTodoHandler> { DeleteTodoHandlerImpl(get()) }
     factory { CreateTodoValidator() }
     factory<TodoRepository> { TodoRepositoryImpl() }
+    factory<QueueSender> { QueueSenderImpl() }
 }

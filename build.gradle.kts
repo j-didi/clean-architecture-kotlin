@@ -40,7 +40,3 @@ subprojects {
         }
     }
 }
-
-
-
-

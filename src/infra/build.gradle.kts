@@ -10,5 +10,7 @@ dependencies {
     implementation("org.jetbrains.exposed:exposed-jdbc:0.37.3")
     implementation("com.microsoft.sqlserver:mssql-jdbc:9.4.1.jre16")
 
+    implementation("com.rabbitmq:amqp-client:5.9.0")
+
     implementation(project(":core"))
 }

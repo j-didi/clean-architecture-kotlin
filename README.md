@@ -9,7 +9,7 @@ The solution is not already containerized so there are some dependencies you mus
 - **JDK 17**
 - **SQL Server Database**
   1. Set credentials on **Connection.kt** in **infra** project
-  2. Use the **create.sql** script on **sql** directory.
+  2. Use the **db.sql** script on **sql** directory.
 
 ## Introduction
 
@@ -66,10 +66,8 @@ The idea was treat **Frameworks**, **Database**, and **Services(api)** as detail
 - [Repository Pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)
 
 ## 5. Next Steps
-1. Add new endpoints
-2. Add tests
-3. Containerization with **Docker**, **Docker Compose** and **Kubernetes**
-4. Integrate with **Message Broker**
-5. **Serverless** example
-6. **CI/CD** pipeline with **GitHub Actions**
-7. **Authentication**/**Authorization**
+1. Add tests
+2. Integrate with **Message Broker**
+3. **Serverless** example
+4. **CI/CD** pipeline with **GitHub Actions**
+5. **Authentication**/**Authorization**
