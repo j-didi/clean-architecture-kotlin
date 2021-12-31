@@ -28,9 +28,6 @@ The organization is based upon **Screaming Architecture** concept by Uncle Bob t
 
 Other principle that I've followed was **CQRS/CQS**, so the **Use Cases** are divided into **Write** or **Read** operations. Also, any **Use Cases** has his owns **Command**, **Query**, **Result** and **Handler**, this last only for **orchestration concerns**.
 
-The main focus is to keep the Domain isolated from external details.
-<br>
-
 ![alt text](images/ScreamingArchitectureStructure.png "Screaming Architecture by Uncle Bob")
 
 ### Infra
