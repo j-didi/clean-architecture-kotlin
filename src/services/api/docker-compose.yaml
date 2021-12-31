@@ -23,7 +23,7 @@ services:
       - ./sql/init.sh:/init.sh
       - ./sql/db.sql:/db.sql
     entrypoint: sh
-    command: ./init.sh
+    command: /init.sh
 
   notifier:
     container_name: notifier
@@ -43,3 +43,4 @@ services:
       - RABBITMQ_DEFAULT_USER=user1
       - RABBITMQ_DEFAULT_PASS=pass1
       - RABBITMQ_DEFAULT_VHOST=didi
+      - RABBITMQ_ERLANG_COOKIE=SWQOKODSQALRPCLNMEQG
