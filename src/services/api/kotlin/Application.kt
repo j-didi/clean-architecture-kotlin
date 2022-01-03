@@ -1,5 +1,5 @@
-import io.ktor.server.engine.*
-import io.ktor.server.netty.*
+import io.ktor.server.engine.embeddedServer
+import io.ktor.server.netty.Netty
 import plugins.configureDatabase
 import plugins.configureDependencies
 import plugins.configureRouting

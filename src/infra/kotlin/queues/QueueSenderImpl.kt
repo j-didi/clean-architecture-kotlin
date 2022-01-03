@@ -5,6 +5,10 @@ import ports.QueueSender
 import usecases.todos.Todo
 import java.nio.charset.StandardCharsets
 
+object RabbitMQSettings {
+    const val PORT = 5672
+}
+
 class QueueSenderImpl : QueueSender {
 
     override fun send(todo: Todo) {
@@ -13,7 +17,7 @@ class QueueSenderImpl : QueueSender {
         factory.username = "user1"
         factory.password = "pass1"
         factory.virtualHost = "didi"
-        factory.port = 5672
+        factory.port = RabbitMQSettings.PORT
 
         val connection = factory.newConnection()
         val channel = connection.createChannel()
