@@ -46,7 +46,10 @@ These are common resources that needs to be used between application layers, lik
 ## 3. Containers
 The application is containerized using **Docker** and automated using **Docker Compose**.
 
-## 4. Packages and Frameworks
+## 4. Code Analysis
+To guarantee that the codebase follows some **Clean Code** standards, I'm using a **Static Code Analysis Tool** called **Detekt**. Each **Gradle Build** will run the analysis.
+
+## 5. Packages and Frameworks
 The idea was treat **Frameworks**, **Database**, and **Services(api)** as details. So, I've avoided to use big frameworks and dependent services. For example, to build the API I've chosen **Ktor** and only used **routing** and **request parsing**, so it's easier to replace with other framework or technology.
 
 - [Gradle](https://gradle.org/) - Build Management
@@ -56,8 +59,9 @@ The idea was treat **Frameworks**, **Database**, and **Services(api)** as detail
 - [Koin](https://insert-koin.io/) - Dependency Injection
 - [Exposed](https://github.com/JetBrains/Exposed) - Object Relational Mapper (ORM)
 - [Konform](https://www.konform.io/) - Input Validation
+- [Detekt](https://detekt.github.io/detekt/) - Static Code Analysis
 
-## 5. Used Patterns and Principles
+## 6. Used Patterns and Principles
 - [Clean Architecture](https://blog.cleancoder.com/uncle-bob/2012/08/13/the-clean-architecture.html)
 - [CQRS/CQRS](https://martinfowler.com/bliki/CQRS.html)
 - [SOLID](https://blog.cleancoder.com/uncle-bob/2020/10/18/Solid-Relevance.html)
@@ -65,7 +69,7 @@ The idea was treat **Frameworks**, **Database**, and **Services(api)** as detail
 - [Fail-Fast Principle](https://enterprisecraftsmanship.com/posts/fail-fast-principle/)
 - [Repository Pattern](https://docs.microsoft.com/en-us/dotnet/architecture/microservices/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design)
 
-## 6. Next Steps
+## 7. Next Steps
 1. Add Tests
 2. **CI/CD** pipeline with **GitHub Actions**
 3. **Authentication**/**Authorization**
